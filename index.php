@@ -1,40 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
 <?php
  
-// Generate an image.
+// Generate image.
 $im = imagecreatetruecolor(255, 255);
  
 // Create a colour.
-$white = imagecolorallocate($im, 255, 255, 255);
+$white = imagecolorallocate($im, 0, 0, 0);
  
-// Set the line thickness to 4.
-imagesetthickness($im, 4);
- 
-// Set the center point of the circle.
-$centerX = 128;
-$centerY = 128;
- 
-// Set the radius of the circle.
-$radius = 100;
- 
-// The angle what will be incremented for each loop.
-$theta = 0;
- 
-while ($theta <= 360) {
-  // Calculate the new x,y coordinates.
-  $x = $centerX + $radius * cos($theta);
-  $y = $centerY + $radius * sin($theta);
- 
-  // Increment theta.
-  $theta += 1;
- 
-  // Draw a line from the centrer point to the x,y coordinates.
-  imageline($im, $centerX, $centerY, $x, $y, $white);
-}
+// Draw a cirlce in the middle of the image.
+imageellipse($im, 128, 128, 200, 200, $white);
  
 // Save the image to a file.
-imagepng($im, 'circle-filled.png');
+imagepng($im, 'circle.png');
  
 // Destroy the image handler.
 imagedestroy($im);
-
 ?>
+
+</body>
+</html>
